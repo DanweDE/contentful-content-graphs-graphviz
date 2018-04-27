@@ -1,0 +1,18 @@
+{
+  "name": "contentful-content-graphs-graphviz",
+  "version": "0.0.1",
+  "description": "Generates dot markup (Graphviz) visualizing an entire Contentful space's structured content.",
+  "main": "src/index.js",
+  "scripts": {
+    "lint": "standard"
+  },
+  "author": "Daniel A. R. Werner",
+  "license": "MIT",
+  "dependencies": {
+    "contentful-export": "^7.0.0"
+  },
+  "devDependencies": {
+    "minimist": "^1.2.0",
+    "standard": "*"
+  }
+}
