@@ -42,6 +42,11 @@ function buildGraphDOT ({ contentTypes, entries, assets, locales }) {
 }
 
 const dotLabel = (label) => `"${_.escape(label.replace(/\\/g, '\\\\'))}"`
-const dotGraph = (dot) => `digraph {\n${dot}\n}`
+const dotGraph = (dot) => `digraph {
+graph [pack=true rankdir=TD bgcolor=transparent fontname=Helvetica fontcolor=blue fontsize=6]
+node [shape=circle width=0.3 fixedsize=shape margin=0 style=filled fontname=Helvetica color="#23a6db66" fontsize=6]
+edge [fontname=Helvetica color="#999999" fontcolor="#999999" fontsize=6]
+${dot}
+}`
 
 module.exports = buildGraphDOT

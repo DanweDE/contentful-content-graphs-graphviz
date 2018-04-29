@@ -1,6 +1,6 @@
 {
   "name": "contentful-content-graphs-graphviz",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Generates dot markup (Graphviz) visualizing an entire Contentful space's structured content.",
   "main": "src/index.js",
   "scripts": {
