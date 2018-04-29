@@ -9,8 +9,9 @@ function buildGraphDOT ({ contentTypes, entries, assets, locales }) {
   const displayFields = _.chain(contentTypes)
     .keyBy('sys.id').mapValues('displayField').value()
 
-  // TODO: Add references of `entities` as edges.
-  return dotGraph(entities.map(newNodeFromEntity).join('\n'))
+  return dotGraph(_.flatMap(entities,
+    (entity) => [ newNodeFromEntity(entity), ...newEdgesFromEntity(entity) ]
+  ).join('\n'))
 
   function newNodeFromEntity (entity) {
     const id = entity.sys.id
@@ -23,6 +24,20 @@ function buildGraphDOT ({ contentTypes, entries, assets, locales }) {
     const ctId = _.get(entity, 'sys.contentType.sys.id')
     const displayField = ctId ? displayFields[ctId] : ASSET_DISPLAY_FIELD
     return displayField && _.get(entity.fields, [displayField, defaultLocale])
+  }
+
+  function newEdgesFromEntity (entity) {
+    return _.flatMap(entity.fields, (field, fieldName) => {
+      return _.chain(field[defaultLocale])
+        .castArray() // Multiple refs is {Array<Object>}, single ref {Object}
+        .filter({ sys: { type: 'Link' } })
+        .map((link) => newEdge(entity.sys.id, link.sys.id, fieldName))
+        .value()
+    })
+  }
+
+  function newEdge (sourceId, targetId, label) {
+    return `"${sourceId}" -> "${targetId}" [label=${dotLabel(label)}]`
   }
 }
 
