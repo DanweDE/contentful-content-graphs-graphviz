@@ -3,6 +3,21 @@ generating directed graphs using [Graphviz] visualizing
 a [Contentful] space's structured content (entries and assets).
 
 
+## Example
+
+Have a look at the [examples folder](examples) for an already exported Contentful
+space containing the Contentful example apps space data. This json file can used to
+try this tool without you exporting your own space data first:
+
+```js
+node src/index.js examples/space.cf-example-app.json | dot -o graph.svg -T svg -K neato
+```
+
+_graph.svg_:
+
+![Graph of Contentful example app](examples/space.cf-example-app.neato.svg)
+
+
 ## Working with the code
 First, download this repository and install all dependencies:
 
@@ -49,22 +64,7 @@ Instead of `-K dot` any other Graphviz layout engine like `neato`, `fdp` or `cir
 can be used to influence the layout of the generated graph.
 
 
-## Examples
-
-Have a look at the [examples folder](examples) for a readily exported Contentful
-space containing the Contentful example apps space data. This json file can used to
-try this tool without you exporting your own space data first:
-
-```js
-node src/index.js examples/space.cf-example-app.json | dot -o graph.svg -T svg -K neato
-```
-
-The result:
-
-![Graph of Contentful example app](examples/space.cf-example-app.neato.svg)
-
-
 [Contentful]: https://contentful.com
-[contentful-export]: https://github.com/DanweDE/contentful-content-graphs-graphviz.git
+[contentful-export]: https://github.com/contentful/contentful-export
 [Graphviz]: https://www.graphviz.org
 [install Graphviz]: https://graphviz.gitlab.io/download
