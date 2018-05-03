@@ -30,7 +30,7 @@ or use the [Contentful export tool][contentful-export] cli directly.
 With the _space.json_ created in this folder you can run:
 
 ```js
-node ./src/index.js
+node ./src/index.js space.json
 ```
 
 This takes the previous step's _space.json_ and prints the _dot_ markup for a graph.
