@@ -20,7 +20,7 @@ e.g. `git checkout blog-post/step-3`.
 To export a Contentful space of your choice to work with, run
 
 ```js
-node ./util/export-space.js --file=space.json --space=CF_SPACE_ID --token=CF_CMA_TOKEN
+node util/export-space.js --file=space.json --space=CF_SPACE_ID --token=CF_CMA_TOKEN
 ```
 
 or use the [Contentful export tool][contentful-export] cli directly.
@@ -30,7 +30,7 @@ or use the [Contentful export tool][contentful-export] cli directly.
 With the _space.json_ created in this folder you can run:
 
 ```js
-node ./src/index.js space.json
+node src/index.js space.json
 ```
 
 This takes the previous step's _space.json_ and prints the _dot_ markup for a graph.
@@ -42,11 +42,26 @@ The generated dot markup can either be copy pasted to [viz-js.com](http://viz-js
 or it can be processed by a local [Graphviz installation][install Graphviz]:
 
 ```js
-node ./src/index.js | dot -o graph.svg -T svg -K dot
+node src/index.js | dot -o graph.svg -T svg -K dot
 ```
 
 Instead of `-K dot` any other Graphviz layout engine like `neato`, `fdp` or `circo`
 can be used to influence the layout of the generated graph.
+
+
+## Examples
+
+Have a look at the [examples folder](examples) for a readily exported Contentful
+space containing the Contentful example apps space data. This json file can used to
+try this tool without you exporting your own space data first:
+
+```js
+node src/index.js examples/space.cf-example-app.json | dot -o graph.svg -T svg -K neato
+```
+
+The result:
+
+![Graph of Contentful example app](examples/space.cf-example-app.neato.svg)
 
 
 [Contentful]: https://contentful.com

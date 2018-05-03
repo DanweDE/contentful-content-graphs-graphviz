@@ -5,7 +5,8 @@
   "main": "src/index.js",
   "scripts": {
     "lint": "standard",
-    "buildgraph": "node ./src/index.js | dot -o graph.svg -T svg -K neato"
+    "buildgraph": "node src/index.js | dot -o graph.svg -T svg -K neato",
+    "buildexample": "node src/index.js examples/space.cf-example-app.json | dot -o examples/space.cf-example-app.neato.svg -T svg -K neato"
   },
   "author": "Daniel A. R. Werner",
   "license": "MIT",
