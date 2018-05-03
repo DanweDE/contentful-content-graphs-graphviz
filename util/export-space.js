@@ -12,7 +12,7 @@ console.log(argv)
 console.log()
 
 require('contentful-export')({
-  managementHost: argv.host || undefined,
+  host: argv.host || undefined,
   managementToken: argv.token,
   spaceId: argv.space,
   environmentId: argv.environment || undefined,
