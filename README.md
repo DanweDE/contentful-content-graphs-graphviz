@@ -1,6 +1,6 @@
-This repository contains code accompanying my Contentful blog post _TBA_ about
-generating directed graphs using [Graphviz] visualizing
-a [Contentful] space's structured content (entries and assets).
+This repository contains code accompanying my [blog post] about generating
+directed graphs using [Graphviz] visualizing a [Contentful] space's structured
+content (entries and assets).
 
 
 ## Example
@@ -63,7 +63,7 @@ node src/index.js | dot -o graph.svg -T svg -K dot
 Instead of `-K dot` any other Graphviz layout engine like `neato`, `fdp` or `circo`
 can be used to influence the layout of the generated graph.
 
-
+[blog post]: https://www.contentful.com/blog/2018/05/04/using-graphviz-to-visualize-structured-content-from-contentful-spaces
 [Contentful]: https://contentful.com
 [contentful-export]: https://github.com/contentful/contentful-export
 [Graphviz]: https://www.graphviz.org
